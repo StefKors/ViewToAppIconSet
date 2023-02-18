@@ -40,5 +40,39 @@
 
 -------
 
+# Getting Started
+
+This is how you get started using ViewToAppIconSet in your project.
+
+## Installation
+
+ViewToAppIconSet is distributed using the [Swift Package Manager](https://www.swift.org/package-manager/). Install it in a project by adding it as a dependency in your Package.swift manifest or through "Package Dependencies" in  project settings.
+
+```swift
+let package = Package(
+    dependencies: [
+        .package(url: "git@github.com:homescape-software/ViewToAppIconSet.git", from: "0.1.0")
+    ]
+)
+```
+
+## Usage
+
+```swift
+let path = try convertViewToAppIconSet(Color.accentColor)
+```
+
+It's a good idea to use the provided `AppIconRenderer` to render your AppIcons:
+
+```swift
+AppIconRenderer(large: {
+    AppIcon
+}, medium: {
+    AppIcon
+}, small: {
+    AppIcon
+})
+.iconStyle(.iOS)
+```
 
 Built by ![Stef Kors](https://stefkors.com)

@@ -1,5 +1,5 @@
 import XCTest
-@testable import ViewToAppIconSet
+import ViewToAppIconSet
 import SwiftUI
 
 class Helpers {
@@ -22,7 +22,7 @@ final class ViewToAppIconSetTests: XCTestCase {
 
     func testWritingFiles() throws {
         // Write View to AppIconSet
-        let path = try ViewToAppIconSet().viewToAppIconSet(AppIconView())
+        let path = try convertViewToAppIconSet(Color.accentColor.iconSize(.medium))
 
         // Assert the folder is created
         Helpers.fileExists(at: URL(fileURLWithPath: path), shouldBeDirectory: true)

@@ -7,23 +7,30 @@
 
 import SwiftUI
 
-enum IconStyle {
+/// Used to specify icon rendering style.
+public enum IconStyle {
     case macOS
     case iOS
 }
 
-private struct IconStyleKey: EnvironmentKey {
-    static let defaultValue: IconStyle = .macOS
+/// Read the current IconStyle
+/// ```swift
+/// @Environment(\.iconStyle) private var iconStyle
+/// ```
+public struct IconStyleKey: EnvironmentKey {
+    public static let defaultValue: IconStyle = .macOS
 }
 
-extension EnvironmentValues {
+public extension EnvironmentValues {
     var iconStyle: IconStyle {
         get { self[IconStyleKey.self] }
         set { self[IconStyleKey.self] = newValue }
     }
 }
 
-extension View {
+public extension View {
+    /// ViewModifier used to control the style of appicon
+    /// - Parameter renderStyle
     func iconStyle(_ renderStyle: IconStyle) -> some View {
         modifier(IconStyleWrapper(style: renderStyle))
     }
