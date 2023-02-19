@@ -189,176 +189,232 @@ Used to generate the `Contents.json` file.
 
 ```
 */
-public struct Contents: Codable {
+public struct Contents: Encodable {
     public let info: Info
     public var images: [Image] = [
         Image(
             idiom: "iphone",
             size: 20,
             scale: 2,
-            filename: "notification40.png"
+            filename: "notification40.png",
+            iconStyle: .iOS,
+            iconSize: .small
         ),
         Image(
             idiom: "iphone",
             size: 20,
             scale: 3,
-            filename: "notification60.png"
+            filename: "notification60.png",
+            iconStyle: .iOS,
+            iconSize: .small
         ),
         Image(
             idiom: "iphone",
             size: 29,
             scale: 2,
-            filename: "settings58.png"
+            filename: "settings58.png",
+            iconStyle: .iOS,
+            iconSize: .small
         ),
         Image(
             idiom: "iphone",
             size: 29,
             scale: 3,
-            filename: "settings87.png"
+            filename: "settings87.png",
+            iconStyle: .iOS,
+            iconSize: .small
         ),
         Image(
             idiom: "iphone",
             size: 40,
             scale: 2,
-            filename: "spotlight80.png"
+            filename: "spotlight80.png",
+            iconStyle: .iOS,
+            iconSize: .small
         ),
         Image(
             idiom: "iphone",
             size: 40,
             scale: 3,
-            filename: "spotlight120.png"
+            filename: "spotlight120.png",
+            iconStyle: .iOS,
+            iconSize: .small
         ),
         Image(
             idiom: "iphone",
             size: 60,
             scale: 2,
-            filename: "iphone120.png"
+            filename: "iphone120.png",
+            iconStyle: .iOS,
+            iconSize: .small
         ),
         Image(
             idiom: "iphone",
             size: 60,
             scale: 3,
-            filename: "iphone180.png"
+            filename: "iphone180.png",
+            iconStyle: .iOS,
+            iconSize: .small
         ),
         Image(
             idiom: "ipad",
             size: 20,
             scale: 1,
-            filename: "ipadNotification20.png"
+            filename: "ipadNotification20.png",
+            iconStyle: .iOS,
+            iconSize: .small
         ),
         Image(
             idiom: "ipad",
             size: 20,
             scale: 2,
-            filename: "ipadNotification40.png"
+            filename: "ipadNotification40.png",
+            iconStyle: .iOS,
+            iconSize: .small
         ),
         Image(
             idiom: "ipad",
             size: 29,
             scale: 1,
-            filename: "ipadSettings29.png"
+            filename: "ipadSettings29.png",
+            iconStyle: .iOS,
+            iconSize: .small
         ),
         Image(
             idiom: "ipad",
             size: 29,
             scale: 2,
-            filename: "ipadSettings58.png"
+            filename: "ipadSettings58.png",
+            iconStyle: .iOS,
+            iconSize: .small
         ),
         Image(
             idiom: "ipad",
             size: 40,
             scale: 1,
-            filename: "ipadSpotlight40.png"
+            filename: "ipadSpotlight40.png",
+            iconStyle: .iOS,
+            iconSize: .small
         ),
         Image(
             idiom: "ipad",
             size: 40,
             scale: 2,
-            filename: "ipadSpotlight80.png"
+            filename: "ipadSpotlight80.png",
+            iconStyle: .iOS,
+            iconSize: .small
         ),
         Image(
             idiom: "ipad",
             size: 76,
             scale: 1,
-            filename: "ipad76.png"
+            filename: "ipad76.png",
+            iconStyle: .iOS,
+            iconSize: .small
         ),
         Image(
             idiom: "ipad",
             size: 76,
             scale: 2,
-            filename: "ipad152.png"
+            filename: "ipad152.png",
+            iconStyle: .iOS,
+            iconSize: .small
         ),
         Image(
             idiom: "ipad",
             size: 83.5,
             scale: 2,
-            filename: "ipadPro167.png"
+            filename: "ipadPro167.png",
+            iconStyle: .iOS,
+            iconSize: .small
         ),
         Image(
             idiom: "ios-marketing",
             size: 1024,
             scale: 1,
-            filename: "appstore1024.png"
+            filename: "appstore1024.png",
+            iconStyle: .iOS,
+            iconSize: .large
         ),
         Image(
             idiom: "mac",
             size: 16,
             scale: 1,
-            filename: "mac16.png"
+            filename: "mac16.png",
+            iconStyle: .macOS,
+            iconSize: .small
         ),
         Image(
             idiom: "mac",
             size: 16,
             scale: 2,
-            filename: "mac32.png"
+            filename: "mac32.png",
+            iconStyle: .macOS,
+            iconSize: .small
         ),
         Image(
             idiom: "mac",
             size: 32,
             scale: 1,
-            filename: "mac32.png"
+            filename: "mac32.png",
+            iconStyle: .macOS,
+            iconSize: .small
         ),
         Image(
             idiom: "mac",
             size: 32,
             scale: 2,
-            filename: "mac64.png"
+            filename: "mac64.png",
+            iconStyle: .macOS,
+            iconSize: .small
         ),
         Image(
             idiom: "mac",
             size: 128,
             scale: 1,
-            filename: "mac128.png"
+            filename: "mac128.png",
+            iconStyle: .macOS,
+            iconSize: .medium
         ),
         Image(
             idiom: "mac",
             size: 128,
             scale: 2,
-            filename: "mac256.png"
+            filename: "mac256.png",
+            iconStyle: .macOS,
+            iconSize: .medium
         ),
         Image(
             idiom: "mac",
             size: 256,
             scale: 1,
-            filename: "mac256.png"
+            filename: "mac256.png",
+            iconStyle: .macOS,
+            iconSize: .medium
         ),
         Image(
             idiom: "mac",
             size: 256,
             scale: 2,
-            filename: "mac512.png"
+            filename: "mac512.png",
+            iconStyle: .macOS,
+            iconSize: .medium
         ),
         Image(
             idiom: "mac",
             size: 512,
             scale: 1,
-            filename: "mac512.png"
+            filename: "mac512.png",
+            iconStyle: .macOS,
+            iconSize: .large
         ),
         Image(
             idiom: "mac",
             size: 512,
             scale: 2,
-            filename: "mac1024.png"
+            filename: "mac1024.png",
+            iconStyle: .macOS,
+            iconSize: .large
         ),
     ]
 

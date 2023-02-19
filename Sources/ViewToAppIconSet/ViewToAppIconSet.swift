@@ -45,7 +45,7 @@ fileprivate func writeImageFiles(_ swiftUIView: some View, _ folder: String) thr
     let contents = Contents()
     try contents.images.forEach { iconInfo in
         let size = iconInfo.size * iconInfo.scale
-        let iconView = swiftUIView
+        let iconView = swiftUIView.icon(style: iconInfo.iconStyle, size: iconInfo.iconSize)
 
         let wrapper = NSHostingView(rootView: iconView)
 

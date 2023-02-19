@@ -34,13 +34,13 @@ import SwiftUI
 ///
 /// > Note: For the best results across the different sizes use the ``aspectRatio(_:contentMode:)-2o0lj`` to layout your view.
 public struct AppIconRenderer<Content: View>: View {
-    internal init(large: @escaping () -> Content, medium: @escaping () -> Content, small: @escaping () -> Content) {
+    public init(large: @escaping () -> Content, medium: @escaping () -> Content, small: @escaping () -> Content) {
         self.large = large
         self.medium = medium
         self.small = small
     }
 
-    internal init(content: @escaping () -> Content) {
+    public init(content: @escaping () -> Content) {
         self.large = content
         self.medium = content
         self.small = content
