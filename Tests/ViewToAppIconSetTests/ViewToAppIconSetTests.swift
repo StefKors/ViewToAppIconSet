@@ -10,6 +10,17 @@ class Helpers {
     }
 }
 
+struct AppIconView: View {
+    var body: some View {
+        Image(systemName: "circle.hexagongrid.fill")
+            .resizable()
+            .scaledToFit()
+            .padding(100)
+            .foregroundColor(.white)
+            .background(Color.indigo)
+    }
+}
+
 final class ViewToAppIconSetTests: XCTestCase {
     func testNumberOfAppIcons() throws {
         let sizes = Contents().images
@@ -20,23 +31,8 @@ final class ViewToAppIconSetTests: XCTestCase {
         XCTAssertEqual(Contents().uniqueFileNames.count, 25)
     }
 
-    func testWritingFiles() throws {
-        // Write View to AppIconSet
-        let view = ZStack {
-            Color.black
-            Color.accentColor.opacity(0.8)
-            HStack(spacing: 0) {
-                Capsule(style: .continuous)
-                    .fill(Color.accentColor)
-                    .aspectRatio(CGSize(width: 2, height: 10), contentMode: .fit)
-                    .rotationEffect(.degrees(30))
-                Capsule(style: .continuous)
-                    .fill(Color.accentColor)
-                    .aspectRatio(CGSize(width: 2, height: 10), contentMode: .fit)
-                    .rotationEffect(.degrees(30))
-            }.shadow(radius: 5)
-        }
-        let path = try convertViewToAppIconSet(Color.green)
+    @MainActor func testImageRenderer() throws {
+        let path = try generateAppIconSet(from: AppIconView())
 
         // Assert the folder is created
         Helpers.fileExists(at: URL(fileURLWithPath: path), shouldBeDirectory: true)

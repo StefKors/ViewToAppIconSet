@@ -14,7 +14,6 @@ extension Contents {
         public let scale: Double
         public let filename: String
         public let iconStyle: IconStyle
-        public let iconSize: IconSize
 
         enum CodingKeys: CodingKey {
             case idiom
