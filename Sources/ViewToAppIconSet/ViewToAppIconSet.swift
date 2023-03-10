@@ -30,9 +30,7 @@ fileprivate func createFolder(at folder: String) throws {
 
 fileprivate func writePNG(image: NSImage, path:String) throws {
     let imageRep = NSBitmapImageRep(data: image.tiffRepresentation!)
-    let pngData = imageRep?.representation(using: .png, properties: [
-        .interlaced: true
-    ])
+    let pngData = imageRep?.representation(using: .png, properties: [:])
     try pngData?.write(to: URL(filePath: path))
 }
 

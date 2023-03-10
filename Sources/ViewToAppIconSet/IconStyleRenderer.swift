@@ -9,7 +9,7 @@ import SwiftUI
 
 internal struct IconStyleRenderer: ViewModifier {
     private let style: IconStyle
-    private let radius: CGFloat = 60
+    private let radius: CGFloat = 100
     private let shadow: CGFloat = 10
 
     internal init(_ style: IconStyle) {
@@ -20,10 +20,10 @@ internal struct IconStyleRenderer: ViewModifier {
         switch style {
         case .macOS:
             content
-                .clipShape(RoundedRectangle(cornerRadius: radius, style: .continuous))
+                .clipShape(RoundedRectangle(cornerRadius: radius, style: .circular))
                 .aspectRatio(CGSize(width: 10, height: 10), contentMode: .fit)
                 .shadow(radius: shadow, y: 1)
-                .padding()
+                .padding(40)
                 .frame(width: 512, height: 512)
         case .iOS:
             content
