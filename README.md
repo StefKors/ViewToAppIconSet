@@ -57,9 +57,35 @@ let package = Package(
 ```
 
 ## Usage
+Create a view with your App Icon and use SwiftUI Previews to design.
 
 ```swift
-let path = try convertViewToAppIconSet(Color.accentColor)
+import ViewToAppIconSet
+import SwiftUI
+
+struct AppIcon: View {
+    let color: Color
+    var body: some View {
+        ContainerRelativeShape()
+            .fill(Color.accentColor)
+    }
+}
+
+struct AppIcon_Previews: PreviewProvider {
+    static var previews: some View {
+        AppIcon()
+            .iconStyle(.macOS)
+            .scenePadding()
+    }
+}
+
+```
+
+Call `generateAppIconSet` to generate the AppIconSet
+```swift
+import ViewToAppIconSet
+
+let path = try generateAppIconSet(from: AppIcon())
 ```
 
 It's a good idea to use the provided `AppIconRenderer` to render your AppIcons:

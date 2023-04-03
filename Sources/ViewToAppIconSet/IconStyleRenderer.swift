@@ -36,8 +36,6 @@ internal struct IconStyleRenderer: ViewModifier {
 struct IconStyleRenderer_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            // Color.green.frame(width: 512, height: 512, alignment: .center)
-
             Color.pink
                 .modifier(IconStyleRenderer(.macOS))
         }

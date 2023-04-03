@@ -28,6 +28,11 @@ fileprivate func createFolder(at folder: String) throws {
     try FileManager.default.createDirectory(atPath: folder, withIntermediateDirectories: true)
 }
 
+/// Write an NSImage to a png file at the provided path
+/// - Parameters:
+///   - image: image to render
+///   - path: location to write the png to
+/// - Throws: throws when writing fails
 fileprivate func writePNG(image: NSImage, path:String) throws {
     let imageRep = NSBitmapImageRep(data: image.tiffRepresentation!)
     let pngData = imageRep?.representation(using: .png, properties: [:])

@@ -163,8 +163,6 @@ extension Color {
     }
 }
 
-
-
 struct AppIcon: View {
     var color: Color
 
@@ -230,36 +228,10 @@ struct AppIcon: View {
     }
 }
 
-struct AppIconView_Previews: PreviewProvider {
+struct AppIcon_Previews: PreviewProvider {
     static var previews: some View {
-        VStack {
-            HStack {
-                AppIcon(color: Color(red: 0.533, green: 0.271, blue: 0.835))
-                    .iconStyle(.macOS)
-                    .scenePadding()
-
-                AppIcon(color: Color(red: 0.0282567, green: 0.355162, blue: 0.349388))
-                    .iconStyle(.macOS)
-                    .scenePadding()
-
-                AppIcon(color: Color(red: 0.826886, green: 0.451385, blue: 0.38428))
-                    .iconStyle(.macOS)
-                    .scenePadding()
-            }
-
-            HStack {
-                AppIcon(color: Color(red: 0.184314, green: 0.0117647, blue: 0.92549))
-                    .iconStyle(.macOS)
-                    .scenePadding()
-
-                AppIcon(color: Color(red: 0.928672, green: 0.600593, blue: 0.215507))
-                    .iconStyle(.macOS)
-                    .scenePadding()
-
-                AppIcon(color: Color(red: 0.473434, green: 0.586395, blue: 0.188347))
-                    .iconStyle(.macOS)
-                    .scenePadding()
-            }
-        }
+        AppIcon()
+            .iconStyle(.macOS)
+            .scenePadding()
     }
 }
