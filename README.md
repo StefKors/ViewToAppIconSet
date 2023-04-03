@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-![ViewToAppIconSet](https://github.com/StefKors/ViewToAppIconSet) a Swift Library to generate an Xcode AppIconSet from a SwiftUI view.
+    <a href="https://github.com/StefKors/ViewToAppIconSet">ViewToAppIconSet</a> a Swift Library to generate an Xcode AppIcon.appiconset from a SwiftUI view.
 </p> 
 
 #### Supported Platforms
