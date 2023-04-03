@@ -90,7 +90,7 @@ import ViewToAppIconSet
 let path = try generateAppIconSet(from: AppIcon())
 ```
 The output has the following structure:
-```shell
+```graphql
 AppIcon.appiconset
     ├── Contents.json
     ├── appstore1024.png
