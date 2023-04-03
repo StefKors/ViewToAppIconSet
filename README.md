@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="Images/AppIcon.appiconset/mac256.png" height="128">
+  <img src="Images/mac256.png" height="128">
   <h1 align="center">ViewToAppIconSet</h1>
 </p>
 
