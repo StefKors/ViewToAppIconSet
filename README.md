@@ -45,6 +45,7 @@ This is how you get started using ViewToAppIconSet in your project.
 ## Installation
 
 ViewToAppIconSet is distributed using the [Swift Package Manager](https://www.swift.org/package-manager/). Install it in a project by adding it as a dependency in your Package.swift manifest or through "Package Dependencies" in  project settings.
+
 ```
 git@github.com:StefKors/ViewToAppIconSet.git
 ```
