@@ -3,7 +3,7 @@
   <h1 align="center">ViewToAppIconSet</h1>
 </p>
 
-![ViewToAppIconSet](https://github.com/homescale-software/ViewToAppIconSet) a Swift Library to generate an Xcode AppIconSet from a SwiftUI view. 
+![ViewToAppIconSet](https://github.com/StefKors/ViewToAppIconSet) a Swift Library to generate an Xcode AppIconSet from a SwiftUI view. 
 
 #### Supported Platforms
 <p align="left">
@@ -51,7 +51,7 @@ ViewToAppIconSet is distributed using the [Swift Package Manager](https://www.sw
 ```swift
 let package = Package(
     dependencies: [
-        .package(url: "git@github.com:homescape-software/ViewToAppIconSet.git", from: "0.1.0")
+        .package(url: "git@github.com:StefKors/ViewToAppIconSet.git", from: "0.1.0")
     ]
 )
 ```
