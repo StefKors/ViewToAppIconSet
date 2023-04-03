@@ -93,36 +93,68 @@ extension Color {
 
 struct AppIcon: View {
     var color: Color
-    var body: some View {
-        Rectangle()
-            .fill(color)
-            .overlay {
-                ZStack {
-                    Circle()
-                        .fill(
-                            LinearGradient(
-                                gradient: Gradient(
-                                    colors: [
-                                        color.lighter(by: 20),
-                                        color.darker(by: 5),
-                                    ]
-                                ),
-                                startPoint: .topTrailing,
-                                endPoint: .bottomLeading
-                            )
-                        )
 
-                    Circle()
-                        .stroke(color.darker(by: 2), lineWidth: 1)
-                }
-                .shadow(color: color.darker(by: 3), radius: 10, y: -5)
-                .shadow(color: color.darker(by: 3).opacity(0.3), radius: 5, x: -5, y: -5)
-                .shadow(color: color.lighter(by: 10).opacity(0.2), radius: 4, x: 3, y: 3)
-                .padding(40)
+    private let padding: CGFloat = 30
+
+    var body: some View {
+        let filled = LinearGradient(
+            gradient: Gradient(
+                colors: [
+                    color.lighter(by: 10),
+                    color.darker(by: 5),
+                ]
+            ),
+            startPoint: .topTrailing,
+            endPoint: .bottomLeading
+        )
+
+
+
+        ContainerRelativeShape()
+            .fill(
+                LinearGradient(
+                    gradient: Gradient(
+                        colors: [
+                            color.lighter(by: 20),
+                            color.darker(by: 5),
+                        ]
+                    ),
+                    startPoint: .topTrailing,
+                    endPoint: .bottomLeading
+                )
+            )
+            .overlay {
+                RoundedRectangle(cornerRadius: 85)
+                    .fill(filled)
+                    .shadow(color: color.darker(by: 15), radius: 10)
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 75)
+                            .fill(filled)
+                            .shadow(color: color.darker(by: 15), radius: 10)
+                            .overlay {
+                                RoundedRectangle(cornerRadius: 60)
+                                    .fill(filled)
+                                    .shadow(color: color.darker(by: 15), radius: 10)
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: 45)
+                                            .fill(filled)
+                                            .shadow(color: color.darker(by: 15), radius: 10)
+                                            .overlay {
+                                                RoundedRectangle(cornerRadius: 30)
+                                                    .fill(filled)
+                                                    .shadow(color: color.darker(by: 15), radius: 10)
+                                                    .padding(padding)
+                                            }
+                                            .padding(padding)
+                                    }
+                                    .padding(padding)
+                            }
+                            .padding(padding)
+                    }
+                    .padding(padding)
             }
     }
 }
-
 final class ViewToAppIconSetTests: XCTestCase {
     func testNumberOfAppIcons() throws {
         let sizes = Contents().images
@@ -134,7 +166,7 @@ final class ViewToAppIconSetTests: XCTestCase {
     }
 
     @MainActor func testImageRenderer() throws {
-        let path = try generateAppIconSet(from: AppIcon(color: Color(red: 0.533, green: 0.271, blue: 0.835)))
+        let path = try generateAppIconSet(from: AppIcon(color: Color(red: 0.928672, green: 0.600593, blue: 0.215507)))
 
         // Assert the folder is created
         Helpers.fileExists(at: URL(fileURLWithPath: path), shouldBeDirectory: true)
@@ -144,6 +176,7 @@ final class ViewToAppIconSetTests: XCTestCase {
 
         // Expected fileCount, all uniqueFileNames plus the "Content.json" file
         let fileCount = Contents().uniqueFileNames.count + 1
+        print(path.description)
         XCTAssertEqual(filesInFolder.count, fileCount)
     }
 }

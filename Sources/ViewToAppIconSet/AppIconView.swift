@@ -167,43 +167,99 @@ extension Color {
 
 struct AppIcon: View {
     var color: Color
-    var body: some View {
-        Rectangle()
-            .fill(color)
-            .overlay {
-                ZStack {
-                    Circle()
-                        .fill(
-                            LinearGradient(
-                                gradient: Gradient(
-                                    colors: [
-                                        color.lighter(by: 20),
-                                        color.darker(by: 5),
-                                    ]
-                                ),
-                                startPoint: .topTrailing,
-                                endPoint: .bottomLeading
-                            )
-                        )
 
-                    Circle()
-                        .stroke(color.darker(by: 2), lineWidth: 1)
-                }
-                .shadow(color: color.darker(by: 3), radius: 10, y: -5)
-                .shadow(color: color.darker(by: 3).opacity(0.3), radius: 5, x: -5, y: -5)
-                .shadow(color: color.lighter(by: 10).opacity(0.2), radius: 4, x: 3, y: 3)
-                .padding(40)
+    private let padding: CGFloat = 30
+
+    var body: some View {
+        let filled = LinearGradient(
+            gradient: Gradient(
+                colors: [
+                    color.lighter(by: 10),
+                    color.darker(by: 5),
+                ]
+            ),
+            startPoint: .topTrailing,
+            endPoint: .bottomLeading
+        )
+
+
+
+        ContainerRelativeShape()
+            .fill(
+                LinearGradient(
+                    gradient: Gradient(
+                        colors: [
+                            color.lighter(by: 20),
+                            color.darker(by: 5),
+                        ]
+                    ),
+                    startPoint: .topTrailing,
+                    endPoint: .bottomLeading
+                )
+            )
+            .overlay {
+                RoundedRectangle(cornerRadius: 85)
+                    .fill(filled)
+                    .shadow(color: color.darker(by: 15), radius: 10)
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 75)
+                            .fill(filled)
+                            .shadow(color: color.darker(by: 15), radius: 10)
+                            .overlay {
+                                RoundedRectangle(cornerRadius: 60)
+                                    .fill(filled)
+                                    .shadow(color: color.darker(by: 15), radius: 10)
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: 45)
+                                            .fill(filled)
+                                            .shadow(color: color.darker(by: 15), radius: 10)
+                                            .overlay {
+                                                RoundedRectangle(cornerRadius: 30)
+                                                    .fill(filled)
+                                                    .shadow(color: color.darker(by: 15), radius: 10)
+                                                    .padding(padding)
+                                            }
+                                            .padding(padding)
+                                    }
+                                    .padding(padding)
+                            }
+                            .padding(padding)
+                    }
+                    .padding(padding)
             }
     }
 }
 
 struct AppIconView_Previews: PreviewProvider {
     static var previews: some View {
-        AppIcon(color: Color(red: 0.533, green: 0.271, blue: 0.835))
-            .iconStyle(.macOS)
-            .scenePadding()
-        // AppIconView()
-        //     .iconStyle(.macOS)
-        //     .scenePadding()
+        VStack {
+            HStack {
+                AppIcon(color: Color(red: 0.533, green: 0.271, blue: 0.835))
+                    .iconStyle(.macOS)
+                    .scenePadding()
+
+                AppIcon(color: Color(red: 0.0282567, green: 0.355162, blue: 0.349388))
+                    .iconStyle(.macOS)
+                    .scenePadding()
+
+                AppIcon(color: Color(red: 0.826886, green: 0.451385, blue: 0.38428))
+                    .iconStyle(.macOS)
+                    .scenePadding()
+            }
+
+            HStack {
+                AppIcon(color: Color(red: 0.184314, green: 0.0117647, blue: 0.92549))
+                    .iconStyle(.macOS)
+                    .scenePadding()
+
+                AppIcon(color: Color(red: 0.928672, green: 0.600593, blue: 0.215507))
+                    .iconStyle(.macOS)
+                    .scenePadding()
+
+                AppIcon(color: Color(red: 0.473434, green: 0.586395, blue: 0.188347))
+                    .iconStyle(.macOS)
+                    .scenePadding()
+            }
+        }
     }
 }
