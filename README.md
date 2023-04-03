@@ -87,18 +87,34 @@ import ViewToAppIconSet
 
 let path = try generateAppIconSet(from: AppIcon())
 ```
-
-It's a good idea to use the provided `AppIconRenderer` to render your AppIcons:
-
-```swift
-AppIconRenderer(large: {
-    AppIcon
-}, medium: {
-    AppIcon
-}, small: {
-    AppIcon
-})
-.iconStyle(.iOS)
+The output has the following structure:
+```shell
+AppIcon.appiconset
+    ├── Contents.json
+    ├── appstore1024.png
+    ├── ipad152.png
+    ├── ipad76.png
+    ├── ipadNotification20.png
+    ├── ipadNotification40.png
+    ├── ipadPro167.png
+    ├── ipadSettings29.png
+    ├── ipadSettings58.png
+    ├── ipadSpotlight40.png
+    ├── ipadSpotlight80.png
+    ├── iphone120.png
+    ├── iphone180.png
+    ├── mac1024.png
+    ├── mac128.png
+    ├── mac16.png
+    ├── mac256.png
+    ├── mac32.png
+    ├── mac512.png
+    ├── mac64.png
+    ├── notification40.png
+    ├── notification60.png
+    ├── settings58.png
+    ├── settings87.png
+    ├── spotlight120.png
+    └── spotlight80.png
 ```
-
 Built by ![Stef Kors](https://stefkors.com)
