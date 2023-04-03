@@ -54,6 +54,8 @@ let package = Package(
 )
 ```
 
+If you find this package useful, please star the repo ⭐️
+
 ## Usage
 Create a view with your App Icon and use SwiftUI Previews to design.
 
