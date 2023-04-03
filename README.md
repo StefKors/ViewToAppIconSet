@@ -38,8 +38,6 @@
 </picture>
 </p>
 
--------
-
 # Getting Started
 
 This is how you get started using ViewToAppIconSet in your project.
