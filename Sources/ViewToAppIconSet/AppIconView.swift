@@ -9,21 +9,39 @@ import SwiftUI
 
 // https://twitter.com/SeanKly/status/1618591718831710212
 // https://3dicons.co/
-private struct AppIconView: View {
+
+struct AppIconView: View {
+    @Environment(\.parentSize) var parentSize
+    @IconRelativeMetric var padding = 10
+
     var body: some View {
         Image(systemName: "circle.hexagongrid.fill")
             .resizable()
             .scaledToFit()
-            .padding(100)
+            .padding(padding)
             .foregroundColor(.white)
             .background(Color.indigo)
     }
 }
 
-private struct AppIconView_Previews: PreviewProvider {
+struct AppIconView_Previews: PreviewProvider {
     static var previews: some View {
-        AppIconView()
-            .iconStyle(.macOS)
-            .scenePadding()
+        HStack {
+            AppIconView()
+                .frame(width: 200, height: 200, alignment: .center)
+                .iconStyle(.macOS)
+                .background(.blue)
+
+            // AppIconView()
+            //     .frame(width: 100, height: 100, alignment: .center)
+            //     .iconStyle(.macOS)
+            //     .background(.blue)
+
+            // AppIconView()
+            //     // .frame(width: 100, height: 100, alignment: .center)
+            //     .iconStyle(.iOS)
+
+        }
+        .scenePadding()
     }
 }

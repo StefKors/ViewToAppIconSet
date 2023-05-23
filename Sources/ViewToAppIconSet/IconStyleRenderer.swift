@@ -7,9 +7,49 @@
 
 import SwiftUI
 
+extension EnvironmentValues {
+    var parentSize: CGFloat {
+        get {
+            return self[ParentSizeEnvironmentKey.self]
+        }
+        set {
+            self[ParentSizeEnvironmentKey.self] = newValue
+        }
+    }
+}
+
+struct ParentSizeEnvironmentKey: EnvironmentKey {
+    static let defaultValue: CGFloat = 512
+}
+
+private struct SingleAxisGeometryReader<Content: View>: View {
+    private struct SizeKey: PreferenceKey {
+        static var defaultValue: CGFloat { 10 }
+        static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+            value = max(value, nextValue())
+        }
+    }
+
+    @State private var size: CGFloat = SizeKey.defaultValue
+    var axis: Axis = .horizontal
+    var alignment: Alignment = .center
+    let content: (CGFloat)->Content
+
+    var body: some View {
+        content(size)
+            .frame(maxWidth:  axis == .horizontal ? .infinity : nil,
+                   maxHeight: axis == .vertical   ? .infinity : nil,
+                   alignment: alignment)
+            .background(GeometryReader {
+                proxy in
+                Color.clear.preference(key: SizeKey.self, value: axis == .horizontal ? proxy.size.width : proxy.size.height)
+            }).onPreferenceChange(SizeKey.self) { size = $0 }
+    }
+}
+
 internal struct IconStyleRenderer: ViewModifier {
     private let style: IconStyle
-    private let radius: CGFloat = 100
+    private let radius: CGFloat = 20
     private let shadow: CGFloat = 10
 
     internal init(_ style: IconStyle) {
@@ -19,25 +59,52 @@ internal struct IconStyleRenderer: ViewModifier {
     func body(content: Content) -> some View {
         switch style {
         case .macOS:
-            content
-                .clipShape(RoundedRectangle(cornerRadius: radius, style: .circular))
-                .aspectRatio(CGSize(width: 10, height: 10), contentMode: .fit)
-                .shadow(radius: shadow, y: 1)
-                .padding(40)
-                .frame(width: 512, height: 512)
+            SingleAxisGeometryReader { width in
+                content
+                    .environment(\.parentSize, width)
+                    .clipShape(RoundedRectangle(cornerRadius: (width*0.2), style: .circular))
+                    .shadow(radius: (width*0.02), y: (width*0.002))
+                    .padding((width*0.08))
+                    .frame(width: width, height: width, alignment: .center)
+            }
+            .aspectRatio(CGSize(width: 10, height: 10), contentMode: .fit)
         case .iOS:
-            content
-                .aspectRatio(CGSize(width: 10, height: 10), contentMode: .fit)
-                .frame(width: 512, height: 512)
+            SingleAxisGeometryReader { width in
+                content
+                    .environment(\.parentSize, width)
+                    .frame(width: width, height: width, alignment: .center)
+            }
+            .aspectRatio(CGSize(width: 10, height: 10), contentMode: .fit)
         }
     }
 }
 
 struct IconStyleRenderer_Previews: PreviewProvider {
     static var previews: some View {
-        ZStack {
-            Color.pink
-                .modifier(IconStyleRenderer(.macOS))
+        VStack {
+            VStack {
+                Image(systemName: "circle.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .padding(102.4)
+                    .foregroundColor(.white)
+            }
+            .background(Color.indigo)
+            .modifier(IconStyleRenderer(.macOS))
+            .frame(width: 512, height: 512, alignment: .center)
+
+            VStack {
+                Image(systemName: "circle.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .padding(20)
+                    .foregroundColor(.white)
+            }
+            .background(Color.indigo)
+            .modifier(IconStyleRenderer(.macOS))
+            .frame(width: 100, height: 100, alignment: .center)
         }
+        .frame(height: 500)
+        .scenePadding()
     }
 }

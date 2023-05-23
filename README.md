@@ -68,10 +68,17 @@ import ViewToAppIconSet
 import SwiftUI
 
 struct AppIcon: View {
+    @IconRelativeMetric var padding = 10 /// 10% padding
     let color: Color
     var body: some View {
         ContainerRelativeShape()
             .fill(Color.accentColor)
+            .overlay(content: {
+                Image(systemName: "circle.hexagongrid.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .padding(padding)
+            })
     }
 }
 
@@ -79,13 +86,14 @@ struct AppIcon_Previews: PreviewProvider {
     static var previews: some View {
         AppIcon()
             .iconStyle(.macOS)
+            .frame(width: 100, height: 100, alignment: .center)
             .scenePadding()
     }
 }
 
 ```
 
-Call `generateAppIconSet` to generate the AppIconSet
+Call `generateAppIconSet` to generate the AppIconSet images
 ```swift
 import ViewToAppIconSet
 
