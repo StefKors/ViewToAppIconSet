@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "ViewToAppIconSet",
     platforms: [
-        .iOS(.v13),
+        .iOS(.v15),
         .macOS(.v13),
         .macCatalyst(.v13),
         .tvOS(.v13),
