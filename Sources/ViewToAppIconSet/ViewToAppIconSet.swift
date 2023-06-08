@@ -28,6 +28,7 @@ fileprivate func createFolder(at folder: String) throws {
     try FileManager.default.createDirectory(atPath: folder, withIntermediateDirectories: true)
 }
 
+#if os(macOS)
 /// Write an NSImage to a png file at the provided path
 /// - Parameters:
 ///   - image: image to render
@@ -38,6 +39,16 @@ fileprivate func writePNG(image: NSImage, path:String) throws {
     let pngData = imageRep?.representation(using: .png, properties: [:])
     try pngData?.write(to: URL(filePath: path))
 }
+#else
+/// Write an UIImage to a png file at the provided path
+/// - Parameters:
+///   - image: image to render
+///   - path: location to write the png to
+/// - Throws: throws when writing fails
+fileprivate func writePNG(image: UIImage, path:String) throws {
+    try image.pngData()?.write(to: URL(filePath: path))
+}
+#endif
 
 /// Converts provided SwiftUI View to an AppIcon.AppIconSet.
 ///
@@ -61,7 +72,11 @@ fileprivate func writePNG(image: NSImage, path:String) throws {
         let renderer = ImageRenderer(content: iconView)
         renderer.scale = scaling
         renderer.proposedSize = .init(width: iconInfo.size, height: iconInfo.size)
+#if os(macOS)
         guard let image = renderer.nsImage  else { return }
+#else
+        guard let image = renderer.uiImage else { return }
+#endif
         try writePNG(image: image, path: folder + iconInfo.filename)
     }
 
