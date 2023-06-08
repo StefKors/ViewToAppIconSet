@@ -8,7 +8,7 @@
 import SwiftUI
 
 extension EnvironmentValues {
-    var parentSize: CGFloat {
+    public var parentSize: CGFloat {
         get {
             return self[ParentSizeEnvironmentKey.self]
         }
