@@ -15,6 +15,14 @@ struct AppIconView: View {
     @IconRelativeMetric var padding = 10
 
     var body: some View {
+        // VStack {
+        //     Image(systemName: "circle.hexagongrid.fill")
+        //         .resizable()
+        //         .scaledToFit()
+        //         .padding(102.4)
+        //         .foregroundColor(.white)
+        // }
+        // .background(Color.indigo)
         Image(systemName: "circle.hexagongrid.fill")
             .resizable()
             .scaledToFit()
@@ -28,9 +36,9 @@ struct AppIconView_Previews: PreviewProvider {
     static var previews: some View {
         HStack {
             AppIconView()
-                .frame(width: 200, height: 200, alignment: .center)
                 .iconStyle(.macOS)
-                .background(.blue)
+                .frame(width: 200, height: 200, alignment: .center)
+                // .background(.blue)
 
             // AppIconView()
             //     .frame(width: 100, height: 100, alignment: .center)

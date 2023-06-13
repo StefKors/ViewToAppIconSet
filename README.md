@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="Images/mac256.png" height="128">
+  <img src="https://github.com/StefKors/ViewToAppIconSet/blob/main/Images/mac256.png" height="128">
   <h1 align="center">ViewToAppIconSet</h1>
 </p>
 
@@ -8,33 +8,33 @@
 #### Supported Platforms
 <p align="left">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="Images/macos.svg">
-  <source media="(prefers-color-scheme: light)" srcset="Images/macos-active.svg">
-  <img alt="macos" src="Images/macos-active.svg" height="24">
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/StefKors/ViewToAppIconSet/blob/main/Images/macos.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/StefKors/ViewToAppIconSet/blob/main/Images/macos-active.svg">
+  <img alt="macos" src="https://github.com/StefKors/ViewToAppIconSet/blob/main/Images/macos-active.svg" height="24">
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="Images/ios-active.svg">
-  <source media="(prefers-color-scheme: light)" srcset="Images/ios.svg">
-  <img alt="macos" src="Images/ios-active.svg" height="24">
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/StefKors/ViewToAppIconSet/blob/main/Images/ios-active.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/StefKors/ViewToAppIconSet/blob/main/Images/ios.svg">
+  <img alt="macos" src="https://github.com/StefKors/ViewToAppIconSet/blob/main/Images/ios-active.svg" height="24">
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="Images/ipados-active.svg">
-  <source media="(prefers-color-scheme: light)" srcset="Images/ipados.svg">
-  <img alt="macos" src="Images/ipados-active.svg" height="24">
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/StefKors/ViewToAppIconSet/blob/main/Images/ipados-active.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/StefKors/ViewToAppIconSet/blob/main/Images/ipados.svg">
+  <img alt="macos" src="https://github.com/StefKors/ViewToAppIconSet/blob/main/Images/ipados-active.svg" height="24">
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="Images/tvos-active.svg">
-  <source media="(prefers-color-scheme: light)" srcset="Images/tvos.svg">
-  <img alt="macos" src="Images/tvos-active.svg" height="24">
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/StefKors/ViewToAppIconSet/blob/main/Images/tvos-active.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/StefKors/ViewToAppIconSet/blob/main/Images/tvos.svg">
+  <img alt="macos" src="https://github.com/StefKors/ViewToAppIconSet/blob/main/Images/tvos-active.svg" height="24">
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="Images/watchos-active.svg">
-  <source media="(prefers-color-scheme: light)" srcset="Images/watchos.svg">
-  <img alt="macos" src="Images/watchos-active.svg" height="24">
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/StefKors/ViewToAppIconSet/blob/main/Images/watchos-active.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/StefKors/ViewToAppIconSet/blob/main/Images/watchos.svg">
+  <img alt="macos" src="https://github.com/StefKors/ViewToAppIconSet/blob/main/Images/watchos-active.svg" height="24">
 </picture>
 </p>
 
