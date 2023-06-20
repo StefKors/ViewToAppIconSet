@@ -82,29 +82,33 @@ internal struct IconStyleRenderer: ViewModifier {
 struct IconStyleRenderer_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            VStack {
-                Image(systemName: "circle.fill")
-                    .resizable()
-                    .scaledToFit()
-                    .padding(102.4)
-                    .foregroundColor(.white)
-            }
-            .background(Color.indigo)
+            AppIconView()
             .modifier(IconStyleRenderer(.macOS))
-            .frame(width: 512, height: 512, alignment: .center)
-
-            VStack {
-                Image(systemName: "circle.fill")
-                    .resizable()
-                    .scaledToFit()
-                    .padding(20)
-                    .foregroundColor(.white)
-            }
-            .background(Color.indigo)
-            .modifier(IconStyleRenderer(.macOS))
-            .frame(width: 100, height: 100, alignment: .center)
+            .frame(width: 16, height: 16, alignment: .center)
+            // 
+            // VStack {
+            //     Image(systemName: "circle.fill")
+            //         .resizable()
+            //         .scaledToFit()
+            //         .padding(102.4)
+            //         .foregroundColor(.white)
+            // }
+            // .background(Color.indigo)
+            // .modifier(IconStyleRenderer(.macOS))
+            // .frame(width: 512, height: 512, alignment: .center)
+            // 
+            // VStack {
+            //     Image(systemName: "circle.fill")
+            //         .resizable()
+            //         .scaledToFit()
+            //         .padding(20)
+            //         .foregroundColor(.white)
+            // }
+            // .background(Color.indigo)
+            // .modifier(IconStyleRenderer(.macOS))
+            // .frame(width: 100, height: 100, alignment: .center)
         }
-        .frame(height: 500)
+        // .frame(height: 500)
         .scenePadding()
     }
 }

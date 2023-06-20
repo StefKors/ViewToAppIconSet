@@ -66,11 +66,11 @@ fileprivate func writePNG(image: UIImage, path:String) throws {
 
     let contents = Contents()
     try contents.images.forEach { iconInfo in
-        let size = iconInfo.size * iconInfo.scale
-        let scaling = (1/512)*size
-        let iconView = view.iconStyle(iconInfo.iconStyle)
+        let iconView = view
+            .iconStyle(iconInfo.iconStyle)
+            .frame(width: iconInfo.size, height: iconInfo.size, alignment: .center)
         let renderer = ImageRenderer(content: iconView)
-        renderer.scale = scaling
+        renderer.scale = iconInfo.scale
         renderer.proposedSize = .init(width: iconInfo.size, height: iconInfo.size)
 #if os(macOS)
         guard let image = renderer.nsImage  else { return }
